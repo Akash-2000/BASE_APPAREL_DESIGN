@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css"/>
+  <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <div class="flex-container">
+
+    <div class="flex-child left">
+      <div class="container">
+      <div class="grid-container">
+        <div class="grid-item">
+          <div style="padding-top: 6%;">
+              <div class="mainhero"><img src="./images/logo.svg" alt="LOGO"/></div>
+          </div>
+          <div class="hero2"><img src="./images/hero-mobile.jpg" alt="LOGO"/></div>
+        </div>
+        <div class="grid-item grids">
+          <h1 class="weare">WE'RE</h1>
+        <div>
+          <h1 class="head1">COMMING</h1>
+          <h1 class="head1">SOON</h1>
+        </div>
+      </div>
+
+        <div class="grid-item paragrid">
+          <P class="para">Hello fellow shoppers! We're currently building our new  store. 
+  Add your email below to stay up-to-date with announcements and our launch deals.</P>
+  <div class="form-container">
+    <form action="" novalidate>
+  
+      <input type="email" id="mail"  placeholder="email address" class="myinput" required minlength="8">
+      <span class="error" aria-live="polite"></span>
+      <input type="submit" value="">
+    </form>
+  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="flex-child right">
+      
+    </div>
+    
+  </div>
+
+  <script>
+
+
+    const form = document.querySelector("form");
+  const email = document.getElementById("mail");
+  const emailError = document.querySelector("#mail + span.error");
+
+//triggers when press submit
+
+  form.addEventListener("submit", (event) => {
+  // if the email field is valid, we let the form submit
+  if (!email.validity.valid) {
+    // If it isn't, we display an appropriate error message
+    showError();
+    // Then we prevent the form from being sent by canceling the event
+    event.preventDefault();
+  }
+});
+
+function showError() {
+  if (email.validity.valueMissing) {
+    // If the field is empty,
+    // display the following error message.
+    emailError.textContent = "You need to enter an email address.";
+  } else if (email.validity.typeMismatch) {
+    // If the field doesn't contain an email address,
+    // display the following error message.
+    emailError.textContent = "please provide a valid email address";
+  } else if (email.validity.tooShort) {
+    // If the data is too short,
+    // display the following error message.
+    emailError.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}.`;
+  }
+
+  // Set the styling appropriately
+  emailError.className = "error active";
+  email.className = "myinput invalid"
+}
+
+  </script>
+  
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://www.frontendmentor.io/profile/Akash-2000">@Akash-2000</a>.
+    </p>
+  </footer>
+</body>
+</html>
